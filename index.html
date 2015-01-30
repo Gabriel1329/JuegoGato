@@ -1,0 +1,28 @@
+
+<html ng-app="game">
+
+  <head>
+    <script src="angular.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+        <h1 align='center'>Gato</h1>
+      </header>
+    <div ng-controller="gameController">
+
+      <table align='center'>
+        <tr ng-repeat="valor in table"> 
+          <td ng-click="play(0)"><img ng-src="{{valor.col1}}"/></td> 
+          <td ng-click="play(0)"><img ng-src="{{valor.col2}}"/></td> 
+          <td ng-click="play(0)"><img ng-src="{{valor.col3}}"/></td> 
+        </tr>
+      </table>  
+      </div>
+    
+
+    <script type="text/javascript" src="gameModule.js"></script>
+    <script type="text/javascript" src="gato.js"></script>
+    <link rel="stylesheet" type="text/css" href="gato.css" />
+  </body>
+</html>
