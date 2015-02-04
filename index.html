@@ -13,7 +13,14 @@
         </tr>
       </table>  
 
-      <div><h1 align='center' ng-show="someWins">Player {{player}} WIN</h1></div>
+      <div align='center' ng-show="someWins">
+          <h1>Player {{player}} WIN</h1>
+          <span><button id="restart" class="" ng-click="resetValues()">Restart</button></span>
+      </div>
+      <div  align='center' ng-show="checkTable() && !someWins">
+        <h1>Empate</h1>
+        <span><button id="restart" class="" ng-click="resetValues()">Restart</button></span>
+      </div>
     </div>
 
     <script src="angular.min.js"></script>
