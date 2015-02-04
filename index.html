@@ -1,26 +1,29 @@
-
 <html ng-app="game">
-
-  <head>
-    <script src="angular.min.js"></script>
-  </head>
-
-  <body>
+  <head></head>
+  <body ng-controller="gameController">
     <header>
         <h1 align='center'>Gato</h1>
-      </header>
-    <div ng-controller="gameController">
-
+    </header>
+    <div>
       <table align='center'>
-        <tr ng-repeat="valor in table"> 
-          <td ng-click="play(0)"><img ng-src="{{valor.col1}}"/></td> 
-          <td ng-click="play(0)"><img ng-src="{{valor.col2}}"/></td> 
-          <td ng-click="play(0)"><img ng-src="{{valor.col3}}"/></td> 
+        <tr ng-repeat="row in table">
+          <td ng-repeat="cell in row" >
+            <img ng-click="play(cell)" ng-src="{{cell.stat}}"/>
+          </td>
         </tr>
       </table>  
-      </div>
-    
 
+      <div align='center' ng-show="someWins">
+          <h1>Player {{player}} WIN</h1>
+          <span><button id="restart" class="" ng-click="resetValues()">Restart</button></span>
+      </div>
+      <div  align='center' ng-show="checkTable() && !someWins">
+        <h1>Empate</h1>
+        <span><button id="restart" class="" ng-click="resetValues()">Restart</button></span>
+      </div>
+    </div>
+
+    <script src="angular.min.js"></script>
     <script type="text/javascript" src="gameModule.js"></script>
     <script type="text/javascript" src="gato.js"></script>
     <link rel="stylesheet" type="text/css" href="gato.css" />
